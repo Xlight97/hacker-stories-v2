@@ -1,13 +1,20 @@
+import { useState } from 'react';
+
 const Search = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
   const handleChange = (event) => {
-    console.log(event);
-    console.log(event.target.value);
+    setSearchTerm(event.target.value);
   };
 
   return (
     <div>
       <label htmlFor="search">Search:</label>
       <input type="text" id="search" onChange={handleChange} />
+
+      <p>
+        Searching for <strong>{searchTerm}</strong>
+      </p>
     </div>
   );
 };
@@ -22,9 +29,9 @@ const List = ({ list }) => {
   );
 };
 
-const Item = ({ key, item }) => {
+const Item = ({ item }) => {
   return (
-    <li key={key}>
+    <li>
       <span>
         <a href={item.url} target="_blank" rel="noreferrer">
           {item.title}
