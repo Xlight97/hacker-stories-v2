@@ -1,16 +1,12 @@
 import { useState } from 'react';
 
-const Search = ({ searchTerm, onSearch }) => {
-  // const handleChange = (event) => {
-  //   onSearch(event);
-  // };
-
+const Search = ({ search, onSearch }) => {
   return (
     <div>
       <label htmlFor="search">Search:</label>
-      <input type="text" id="search" onChange={onSearch} />
+      <input type="text" id="search" value={search} onChange={onSearch} />
       <p>
-        Searching for <strong>{searchTerm}</strong>
+        Searching for <strong>{search}</strong>
       </p>
     </div>
   );
@@ -42,7 +38,7 @@ const Item = ({ item }) => {
 };
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('React');
 
   const stories = [
     {
@@ -74,7 +70,7 @@ const App = () => {
   return (
     <>
       <h1>My Hacker Stories</h1>
-      <Search searchTerm={searchTerm} onSearch={handleSearch} />
+      <Search search={searchTerm} onSearch={handleSearch} />
 
       <hr />
 
