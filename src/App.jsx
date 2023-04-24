@@ -22,20 +22,18 @@ const List = ({ list }) => {
   );
 };
 
-const Item = ({ item }) => {
-  return (
-    <li>
-      <span>
-        <a href={item.url} target="_blank" rel="noreferrer">
-          {item.title}
-        </a>
-      </span>
-      <span>{item.author}</span>
-      <span>{item.num_comments}</span>
-      <span>{item.points}</span>
-    </li>
-  );
-};
+const Item = ({ item }) => (
+  <li>
+    <span>
+      <a href={item.url} target="_blank" rel="noreferrer">
+        {item.title}
+      </a>
+    </span>
+    <span>{item.author}</span>
+    <span>{item.num_comments}</span>
+    <span>{item.points}</span>
+  </li>
+);
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('React');
